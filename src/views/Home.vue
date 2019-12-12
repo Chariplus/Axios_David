@@ -2,7 +2,6 @@
   <div class="home">
     <div> ENTRADA!! </div>
     <button @click="llamada()">llamada</button>
-    <p>{{ responseRetry }}</p>
   </div>
 </template>
 
@@ -18,19 +17,16 @@ export default {
   },
   data () {
     return {
-      str: 'demo',
-      responseRetry: []
+      str: 'demo'
       }
   },
   methods: {
     llamada: function() {
-      User_results.initMaterial().then((a) => {
-        //debugger
+      User_results.initMaterial().then(function(a){
+        debugger
         console.log('response ok');
-        this.responseRetry.push('success');
-      }).catch((e) => {
+      }).catch(function(e) {
         console.log('ha fallado')
-        this.responseRetry.push('error');
       });
     }
     /*recibirEvento({ value, type }) {
